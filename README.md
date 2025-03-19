@@ -6,7 +6,7 @@ A simple yet visually appealing animation of a heart surrounded by animated circ
 
 https://gyanthakur.github.io/Flow/
 
-*(Replace `preview.gif` with an actual GIF or image showcasing your animation.)*
+
 
 ## 🚀 Features
 
