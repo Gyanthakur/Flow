@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #000000, #1a1a1a, #292929);
+    background-size: 400% 400%;
+    overflow: hidden;
+    animation: backgroundAnimation 8s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    position: relative;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    position: absolute;
+    background: transparent;
+    width: calc(var(--i) * 2.5vmin);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid rgb(0, 255, 13);
+    transform-style: preserve-3d;
+    transform: rotateX(70deg) translateZ(50px);
+    animation: animate 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+    box-shadow: 0 0 20px rgb(0, 255, 13), inset 0 0 10px rgb(0, 255, 13);
+}
+
+@keyframes animate {
+    0%, 100% {
+        transform: rotateX(70deg) translateZ(50px) translateY(0);
+        filter: hue-rotate(0);
+    }
+    50% {
+        transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    box-shadow: -10px 10px 80px red;
+    animation: heartbeat 1s infinite alternate;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: 25px;
+    top: 0;
+}
+
+@keyframes heartbeat {
+    0% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); }
+    100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.2); }
+} 
+
